@@ -1,0 +1,942 @@
+/* style.css */
+:root {
+    --primary: #7000FF; /* Púrpura principal según mockup */
+    --primary-light: #D5BFFF; /* Púrpura muy claro para fondos de tarjetas */
+    --primary-hover: #5A00CC;
+    --bg-main: #F4F6F9; /* Fondo gris claro general */
+    --bg-card: #FFFFFF; /* Fondo de paneles y tarjetas */
+    --text-dark: #1A1A1A;
+    --text-muted: #6B7280;
+    --border-color: #E5E7EB;
+    
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(112, 0, 255, 0.08);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.1);
+    
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    height: 100vh;
+    overflow: hidden; /* Controlado por el layout */
+}
+
+/* UTILIDADES */
+.hidden {
+    display: none !important;
+}
+.view {
+    height: 100vh;
+    width: 100vw;
+    animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =========================================
+   1. LOGIN / REGISTER VIEW
+   ========================================= */
+#login-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #E8E8E8; /* Gris oscuro para resaltar la tarjeta */
+}
+
+.login-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.login-left {
+    flex: 1;
+    background: linear-gradient(135deg, #4A00A3 0%, var(--primary) 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.runner-silhouette {
+    font-size: 10rem;
+    color: rgba(255,255,255,0.8);
+    text-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.login-right {
+    flex: 1;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-right .logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.logo-icon {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 0.9rem;
+    margin-right: 8px;
+}
+
+.login-right h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background-color: #F9FAFB;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+}
+
+.forgot-pass {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.social-logins {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-social {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn-social:hover {
+    background: var(--bg-main);
+}
+
+.toggle-auth {
+    text-align: center;
+    font-size: 0.9rem;
+}
+.toggle-auth a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* =========================================
+   2. MAIN APP LAYOUT
+   ========================================= */
+#app-view {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+}
+
+.sidebar .logo {
+    padding: 0 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar nav {
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.nav-item .nav-icon {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.nav-item:hover {
+    background-color: var(--bg-main);
+    color: var(--primary);
+}
+
+.nav-item.active {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    border-left-color: var(--primary);
+    font-weight: 600;
+}
+
+.user-profile {
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    transition: var(--transition);
+}
+.btn-user:hover {
+    background: var(--bg-main);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-main);
+    overflow: hidden;
+}
+
+.topbar {
+    height: 70px;
+    background-color: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-bar {
+    background: var(--bg-main);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-xl);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    width: 300px;
+    text-align: center;
+}
+
+.notifications {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+.app-section {
+    flex: 1;
+    padding: 2rem 4rem;
+    overflow-y: auto;
+    animation: fadeIn 0.3s;
+}
+
+/* =========================================
+   3. INICIO
+   ========================================= */
+.greeting-card {
+    background-color: var(--primary-light);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.greeting-text h2 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.date-selector {
+    margin-top: 1.5rem;
+}
+.date-selector input {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    outline: none;
+    font-family: inherit;
+}
+
+.avatar-circle {
+    width: 100px;
+    height: 100px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: var(--shadow-md);
+}
+
+.daily-progress-section {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.progress-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.progress-header h3 {
+    margin-right: auto;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.progress-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary) 0%, var(--bg-main) 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 1rem;
+}
+.progress-circle::before {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background-color: var(--bg-card);
+    border-radius: 50%;
+}
+.progress-circle span {
+    position: relative;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.progress-text-right {
+    display: flex;
+    flex-direction: column;
+}
+.progress-text-right strong {
+    font-size: 1.2rem;
+}
+.progress-text-right span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.habit-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+.habit-item:hover {
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary-light);
+}
+
+.habit-icon {
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-light);
+    border-radius: 50%;
+}
+
+.habit-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+/* Custom Checkbox Toggle */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: var(--primary);
+}
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.btn-add-habit {
+    width: 100%;
+    background-color: var(--primary-light);
+    color: var(--primary-hover);
+    border: none;
+    padding: 1.2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1rem;
+}
+.btn-add-habit:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* =========================================
+   4. ESTADÍSTICAS
+   ========================================= */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.kpi-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-card {
+    background: var(--primary-light);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+.kpi-card h4 {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+.kpi-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+.kpi-desc {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.chart-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.bar-chart {
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.bar {
+    width: 40px;
+    background-color: var(--primary);
+    border-radius: 4px 4px 0 0;
+    transition: height 1s ease;
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.stats-table {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.table-header {
+    display: flex;
+    padding: 1rem 2rem;
+    background: #F9FAFB;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.col-habit { flex: 1; }
+.col-promedio { flex: 2; }
+
+.stat-row {
+    display: flex;
+    padding: 1rem 2rem;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.stat-row:last-child { border-bottom: none; }
+
+.progress-bar-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.progress-bar-container .pct {
+    width: 40px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+.progress-bar {
+    flex: 1;
+    height: 12px;
+    background-color: var(--primary-light);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-left: 1rem;
+}
+.progress-bar .fill {
+    height: 100%;
+    background-color: var(--primary);
+    transition: width 1s ease;
+}
+
+
+/* =========================================
+   5. CALENDARIO
+   ========================================= */
+.calendar-layout {
+    display: flex;
+    gap: 2rem;
+    height: 100%;
+}
+
+.calendar-main {
+    flex: 2;
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.month-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+}
+.month-nav button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+}
+.calendar-day-header {
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.calendar-day {
+    aspect-ratio: 1;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+.calendar-day:hover {
+    border-color: var(--primary);
+}
+.calendar-day.active {
+    border: 2px solid var(--primary);
+}
+.day-num {
+    font-weight: 500;
+    margin-bottom: auto;
+}
+.day-indicator {
+    height: 6px;
+    border-radius: 3px;
+    width: 100%;
+    margin-top: 2px;
+}
+.day-indicator.full { background: var(--primary); }
+.day-indicator.partial { background: var(--primary-light); }
+
+
+.calendar-sidebar {
+    flex: 1;
+    background: var(--primary-light);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+}
+.calendar-sidebar h3 { margin-bottom: 1.5rem; font-size: 1.1rem; }
+.selected-date {
+    background: rgba(255,255,255,0.5);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.progress-circle.large {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem auto;
+}
+.progress-circle.large::before {
+    width: 80px; height: 80px;
+    background: var(--primary-light);
+}
+.progress-circle.large span {
+    font-size: 1.5rem;
+}
+.calendar-sidebar .progress-text-right {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.habit-status-list h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+.habit-status-list ul {
+    list-style: none;
+}
+.habit-status-list li {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+.habit-status-list li::before {
+    content: "✓";
+    color: var(--primary);
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+#calendar-pending-list li::before {
+    content: "○";
+    color: var(--text-muted);
+}
+
+
+/* =========================================
+   6. LOGROS
+   ========================================= */
+.achievements-banner {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    background: white;
+    margin-bottom: 3rem;
+}
+
+.banner-icon {
+    font-size: 4rem;
+    margin-right: 2rem;
+}
+.banner-content {
+    flex: 1;
+}
+.banner-stats {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+.unlocked-count {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 1.5rem;
+}
+.banner-message {
+    text-align: right;
+    max-width: 250px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.achievement-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid transparent;
+}
+.achievement-card.unlocked {
+    background: var(--primary-light);
+    border-color: var(--primary);
+}
+.achievement-card.locked {
+    background: #E5E7EB;
+    color: var(--text-muted);
+}
+
+.ach-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    background: white;
+    border-radius: 50%;
+}
+.locked .ach-icon {
+    background: transparent;
+    border: 2px solid var(--text-muted);
+}
+.achievement-card h4 {
+    margin-bottom: 0.5rem;
+}
+.achievement-card p {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background: white;
+}
+.unlocked .status-badge {
+    color: var(--primary);
+}
+
+/* =========================================
+   7. MODALS
+   ========================================= */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    width: 400px;
+    box-shadow: var(--shadow-lg);
+}
+.modal-content h3 { margin-bottom: 1.5rem; }
+.modal-content input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+}
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.btn-cancel {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+.modal-actions .btn-primary {
+    margin-bottom: 0;
+    width: auto;
+    padding: 0.8rem 2rem;
+}
